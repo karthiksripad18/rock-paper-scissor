@@ -13,18 +13,18 @@ const gameSlice = createSlice(
         name: 'game',
         initialState,
         reducers: {
-            setPlayerName: (state, action) => {
-                state.playerName = action.payload;
+            setPlayerName: (state: gameState, {payload}) => {
+                state.playerName = payload;
             },
-            setNumOfGames: (state, action) => {
-                state.numOfGames = action.payload;
-                state.numOfGamesLeft = action.payload;
+            setNumOfGames: (state: gameState, {payload}) => {
+                state.numOfGames = payload;
+                state.numOfGamesLeft = payload;
             },
-            decrementNumOfGames: (state, action) => {
+            decrementNumOfGames: (state: gameState) => {
                 state.numOfGamesLeft=state.numOfGamesLeft !== null? state.numOfGamesLeft - 1: null;
             },
-            addGameToHistory: (state, action) => {
-                state.gameHistory = [...state.gameHistory, action.payload];
+            addGameToHistory: (state: gameState, {payload}) => {
+                state.gameHistory = [...state.gameHistory, payload];
             }
         }
     }
