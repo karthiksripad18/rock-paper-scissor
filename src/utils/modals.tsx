@@ -9,7 +9,7 @@ export interface gameObj {
 
 export interface gameState {
     playerName: string | null;
-    numberOfGames: number | null;
-    numberOfGamesLeft: number | null;
+    numOfGames: number | null;
+    numOfGamesLeft: number | null;
     gameHistory: gameObj[];
 };

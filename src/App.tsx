@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
 
+import { useDispatch } from 'react-redux';
+import {setPlayerName, setNumOfGames, decrementNumOfGames, addGameToHistory} from './redux/gameSlice';
+
 function App() {
+  const dispatch = useDispatch();
   return (
     <div className="App">
-      <h1 className="text-red-500">Karthik</h1>
     </div>
   );
 }
