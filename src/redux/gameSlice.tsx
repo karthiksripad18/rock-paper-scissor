@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {gameState} from '../utils/modals';
+import {gameState} from '../common/modals';
 
 const initialState: gameState = {
     playerName: null,
