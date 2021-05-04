@@ -1,13 +1,18 @@
 import React from 'react';
 import './App.css';
 
-import { useDispatch } from 'react-redux';
-import {setPlayerName, setNumOfGames, decrementNumOfGames, addGameToHistory} from './redux/gameSlice';
+import {Switch, Route} from 'react-router-dom';
+
+import Home from './components/Home';
+import Game from './components/Game';
 
 function App() {
-  const dispatch = useDispatch();
   return (
-    <div className="App">
+    <div className="bg-gray-300 h-screen flex justify-center items-center">
+      <Switch>
+        <Route path="/" exact><Home /></Route>
+        <Route path="/game"><Game /></Route>
+      </Switch>
     </div>
   );
 }
