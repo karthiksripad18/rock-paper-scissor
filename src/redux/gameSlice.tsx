@@ -24,6 +24,7 @@ const gameSlice = createSlice(
                 state.numOfGamesLeft=state.numOfGamesLeft !== null? state.numOfGamesLeft - 1: null;
             },
             addGameToHistory: (state: gameState, {payload}) => {
+                console.log(payload);
                 state.gameHistory = [...state.gameHistory, payload];
             }
         }
@@ -31,4 +32,6 @@ const gameSlice = createSlice(
 );
 
 export const { setPlayerName, setNumOfGames, decrementNumOfGames, addGameToHistory } = gameSlice.actions;
+export const getNumOfGamesLeft = ({game}: any) => game.numOfGamesLeft;
+export const getGameHistory = ({game}: any) => game.gameHistory;
 export default gameSlice.reducer;
