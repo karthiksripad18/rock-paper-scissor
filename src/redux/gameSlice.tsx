@@ -5,7 +5,8 @@ const initialState: gameState = {
     playerName: null,
     numOfGames: null,
     numOfGamesLeft: null,
-    gameHistory: []
+    gameHistory: [],
+    isLoading: false
 }
 
 const gameSlice = createSlice(
@@ -24,14 +25,17 @@ const gameSlice = createSlice(
                 state.numOfGamesLeft=state.numOfGamesLeft !== null? state.numOfGamesLeft - 1: null;
             },
             addGameToHistory: (state: gameState, {payload}) => {
-                console.log(payload);
                 state.gameHistory = [...state.gameHistory, payload];
+            },
+            setIsLoading: (state: gameState, {payload}) => {
+                state.isLoading = payload
             }
         }
     }
 );
 
-export const { setPlayerName, setNumOfGames, decrementNumOfGames, addGameToHistory } = gameSlice.actions;
+export const { setPlayerName, setNumOfGames, decrementNumOfGames, addGameToHistory, setIsLoading } = gameSlice.actions;
 export const getNumOfGamesLeft = ({game}: any) => game.numOfGamesLeft;
 export const getGameHistory = ({game}: any) => game.gameHistory;
+export const getIsLoading = ({game}: any) => game.isLoading;
 export default gameSlice.reducer;

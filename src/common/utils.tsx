@@ -1,8 +1,6 @@
-import {ROCK, PAPER,SCISSOR, playerWon, compWon, matchDrawn, RPS} from './constants';
+import { ROCK, PAPER, SCISSOR, playerWon, compWon, matchDrawn, RPS } from './constants';
 
 export const determineGameResult = (playerPick: RPS, compPick: RPS) => {
-    console.log(playerPick);
-    console.log(compPick);
     if (playerPick === ROCK) {
         if (compPick === ROCK) return matchDrawn;
         else if (compPick === PAPER) return compWon;

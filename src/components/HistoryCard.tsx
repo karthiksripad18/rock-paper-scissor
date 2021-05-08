@@ -5,9 +5,9 @@ import {gameObj} from '../common/modals';
 
 const HistoryCard = ({id, playerPick, compPick, result}: gameObj) => {
     return (
-        <div className="m-2 w-2/3 h-1/5 rounded shadowed-2xl bg-gray-300 flex flex-col justify-evenly items-center">
+        <div className="m-2 w-3/4 h-1/5 rounded shadowed-2xl bg-gray-300 flex flex-col justify-evenly items-center">
             <div><p>{OUTCOMEMAP[result]}</p></div>
-            <div className="flex justify-center">
+            <div className="w-full flex justify-evenly">
                 {
                     playerPick && ICONS[playerPick]
                 } 

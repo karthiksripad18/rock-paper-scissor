@@ -12,4 +12,5 @@ export interface gameState {
     numOfGames: number | null;
     numOfGamesLeft: number | null;
     gameHistory: gameObj[];
+    isLoading: boolean;
 };
