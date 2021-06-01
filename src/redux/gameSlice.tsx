@@ -27,6 +27,10 @@ const gameSlice = createSlice(
             addGameToHistory: (state: gameState, {payload}) => {
                 state.gameHistory = [...state.gameHistory, payload];
             },
+            restartGame: (state: gameState) => {
+                state.numOfGamesLeft = state.numOfGames;
+                state.gameHistory = [];
+            },
             setIsLoading: (state: gameState, {payload}) => {
                 state.isLoading = payload
             }
@@ -34,7 +38,7 @@ const gameSlice = createSlice(
     }
 );
 
-export const { setPlayerName, setNumOfGames, decrementNumOfGames, addGameToHistory, setIsLoading } = gameSlice.actions;
+export const { setPlayerName, setNumOfGames, decrementNumOfGames, addGameToHistory, restartGame, setIsLoading } = gameSlice.actions;
 export const getNumOfGamesLeft = ({game}: any) => game.numOfGamesLeft;
 export const getGameHistory = ({game}: any) => game.gameHistory;
 export const getIsLoading = ({game}: any) => game.isLoading;

@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RPS, ROCK, PAPER, SCISSOR, RPSMAP, OUTCOMEMAP,ICONS, LOADER} from '../common/constants';
 import {gameObj} from '../common/modals';
 import {determineGameResult} from '../common/utils';
-import {addGameToHistory, decrementNumOfGames, getNumOfGamesLeft, getIsLoading, setIsLoading} from '../redux/gameSlice';
+import {addGameToHistory, decrementNumOfGames, getNumOfGamesLeft, getIsLoading, setIsLoading, restartGame} from '../redux/gameSlice';
 
 const Playground = () => {
     const dispatch = useDispatch();
@@ -32,6 +32,11 @@ const Playground = () => {
         dispatch(setIsLoading(true));
         setTimeout(() => dispatch(setIsLoading(false)), 2000);
     };
+
+    const restartFullGame = () => {
+        dispatch(restartGame());
+        resetGame();
+    }
 
     const resetGame = () => {
         setPlayerPick(null);
@@ -91,6 +96,9 @@ const Playground = () => {
                     {
                         !isLoading && gamesLeft && gamesLeft > 0 ? 
                         <button onClick={resetGame} className="bg-gray-300 w-1/3 shadow-2xl rounded">Next round</button>
+                        :
+                        !isLoading && gamesLeft === 0?
+                        <button onClick={() => restartFullGame()} className="bg-gray-300 w-1/3 shadow-2xl rounded">Restart Game</button>
                         :
                         null
                     }
