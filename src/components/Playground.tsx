@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {RPS, ROCK, PAPER, SCISSOR, RPSMAP, OUTCOMEMAP, OUTCOMEICONMAP,ICONS, LOADER} from '../common/constants';
+import {RPS, ROCK, PAPER, SCISSOR, RPSMAP, OUTCOMEMAP,ICONS, LOADER} from '../common/constants';
 import {gameObj} from '../common/modals';
 import {determineGameResult} from '../common/utils';
 import {addGameToHistory, decrementNumOfGames, getNumOfGamesLeft, getIsLoading, setIsLoading} from '../redux/gameSlice';
